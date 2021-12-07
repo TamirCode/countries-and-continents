@@ -1,0 +1,234 @@
+/* #region || root */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+
+:root {
+    --lightblue: rgb(14, 113, 212);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #e9e9e9;
+}
+
+/* #endregion */
+
+main {
+    background-color: #e9e9e9;
+    display: flex; /* to fix collapsing margin issues */
+    flex-direction: column;
+    padding: 30px;
+}
+
+
+/* #region || form */
+.form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 25px;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 6px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 860px) {
+    .form {
+        flex-direction: column;
+    }
+    .form #all-btn {
+        margin-top: 15px;
+    }
+}
+
+
+/* #region || all-btn */
+
+#all-btn {
+    text-align: center;
+    color: white;
+    background-color: var(--lightblue);
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    height: 35px;
+    padding: 0 10px;
+    margin-left: 25px;
+    font-size: 16px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#all-btn:focus {
+    border: 3px solid black;
+}
+
+/* #endregion */
+/* #region || search-box */
+
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: transparent;
+    display: flex;
+}
+
+.search-text-input {
+    height: 35px;
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border: 3px solid var(--lightblue);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    flex-grow: 1;
+    min-width: 90px;
+    z-index: 1;
+    width: 0;
+    font-size: 14px;
+    font-family: 'Roboto Mono', monospace;
+    padding-left: 10px;
+}
+
+.search-text-input:focus {
+    outline: none;
+    border: 3px solid black;
+}
+
+.search-container button {
+    min-height: 35px;
+    min-width: 35px;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    font-size: 18px;
+    color: white;
+    background-color: var(--lightblue);
+    cursor: pointer;
+    border: none;
+}
+
+.search-container button:focus {
+    border: 3px solid black;
+}
+
+.search-container .search-btn {
+    border-radius: 0 5px 5px 0;
+}
+
+.search-container .search-mic-btn {
+    border-radius: 100%;
+    margin-left: 5px;
+    transition: font-size 0.3s;  
+}
+
+.search-container .search-mic-btn.listening {
+    font-size: 24px;
+    position: relative;
+}
+
+.search-container .search-mic-btn.listening::before {
+    content: "Listening...";
+    position: absolute;
+    top: 105%;
+    display: block;
+    width: max-content;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.418);
+    border-radius: 7px;
+    padding: 5px;
+    z-index: 100;
+}
+
+/* #endregion */
+/* #endregion */
+/* #region || summary-container */
+
+.summary-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 25px;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 6px rgba(0,0,0,0.15);
+    margin-top: 30px;
+}
+
+.summary-container h1 {
+    font-size: 20px;
+}
+
+#total-countries-num,
+#total-population-num,
+#avg-population-num {
+    color: var(--lightblue);
+}
+
+/* #endregion */
+/* #region || countries + continents */
+
+.split {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 30px 0;
+    gap: 30px;
+}
+
+.countries-container,
+.continents-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 6px rgba(0,0,0,0.15);
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-content: flex-start;
+}
+
+/* #region || cards */
+
+.card-container {
+    padding: 25px;
+    background-color: var(--lightblue);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 6px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: max-content;
+}
+
+.card-container h2 {
+    font-size: 16px;
+}
+
+#country-name,
+#continent-name {
+    color: white;
+}
+
+#population-num,
+#country-count {
+    color: rgb(148, 255, 255);
+}
+
+.continents-container .card-container {
+    width: 100%;
+}
+
+/* #endregion */
+/* #endregion */
+
